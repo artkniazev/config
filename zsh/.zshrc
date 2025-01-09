@@ -58,3 +58,13 @@ alias vi="nvim"
 
 # fzf, open as a tmux window
 alias fzf="fzf --tmux center"
+
+# Git aliases
+alias gs="git status -sb"
+alias ga="git add"
+alias gaa="git add -A"
+alias gc="git commit"
+alias gca="git commit --amend"
+alias gp="git push"
+alias gpf="git push --force"
+
