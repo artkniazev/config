@@ -5,6 +5,7 @@
 !.gitignore
 !LICENSE
 !README.md
+!manage.sh
 !iterm2/
 !nvim/
 !tmux/
