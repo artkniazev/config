@@ -1,0 +1,13 @@
+# Ignore everything:
+*
+
+# Except these:
+!.gitignore
+!LICENSE
+!README.md
+!iterm2/
+!nvim/
+!tmux/
+!vim/
+!zsh/
+
