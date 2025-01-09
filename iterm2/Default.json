@@ -43,11 +43,11 @@
     "Green Component" : 0.47524076700210571
   },
   "Ansi 8 Color (Dark)" : {
-    "Red Component" : 0.11764705882352941,
+    "Red Component" : 0.082352941176470587,
     "Color Space" : "P3",
     "Blue Component" : 0.11764705882352941,
     "Alpha Component" : 1,
-    "Green Component" : 0.11764705882352941
+    "Green Component" : 0.098039215686274508
   },
   "Background Color" : {
     "Red Component" : 0.97999999999999998,
@@ -144,7 +144,7 @@
     "Green Component" : 1
   },
   "Silence Bell" : true,
-  "Rows" : 50,
+  "Rows" : 59,
   "Guid" : "3F7B9881-D701-4319-A314-61011ACB4F15",
   "Ansi 14 Color (Dark)" : {
     "Red Component" : 0.37597531080245972,
@@ -161,11 +161,11 @@
     "Green Component" : 1
   },
   "Ansi 0 Color (Dark)" : {
-    "Red Component" : 0.090196078431372548,
+    "Red Component" : 0.082352941176470587,
     "Color Space" : "P3",
-    "Blue Component" : 0.090196078431372548,
+    "Blue Component" : 0.11764705882352941,
     "Alpha Component" : 1,
-    "Green Component" : 0.090196078431372548
+    "Green Component" : 0.098039215686274508
   },
   "Ambiguous Double Width" : false,
   "Option Key Sends" : 0,
@@ -179,7 +179,7 @@
   "Window Type" : 0,
   "BM Growl" : true,
   "Prompt Before Closing 2" : false,
-  "Command" : "\/opt\/homebrew\/bin\/tmux ",
+  "Command" : "\/opt\/homebrew\/bin\/tmux new -As0",
   "Selected Text Color" : {
     "Red Component" : 0,
     "Color Space" : "sRGB",
@@ -339,7 +339,7 @@
     "Green Component" : 0.23660069704055786
   },
   "Name" : "Default",
-  "Transparency" : 0.01825334821428571,
+  "Transparency" : 0,
   "Horizontal Spacing" : 1,
   "Cursor Color (Dark)" : {
     "Red Component" : 0.99997633695602417,
@@ -506,7 +506,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.7607843279838562
   },
-  "Normal Font" : "Monaco 15",
+  "Normal Font" : "JetBrainsMonoNFM-Regular 15",
   "Unlimited Scrollback" : true,
   "Ansi 12 Color (Light)" : {
     "Red Component" : 0.65349078178405762,
