@@ -1,9 +1,5 @@
 # --- Shell Options ---
 
-# Unsafe? Some autocompletion script wanted it
-#autoload -U +X compinit && compinit
-#autoload -U +X bashcompinit && bashcompinit 
-
 export LC_ALL=en_US.UTF-8
 
 # https://scriptingosx.com/2019/06/moving-to-zsh-part-3-shell-options/
