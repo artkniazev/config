@@ -29,16 +29,52 @@ setopt HIST_REDUCE_BLANKS
 # Autocorrection
 setopt CORRECT
 setopt CORRECT_ALL
-
+# Allow susbtitutions in a prompt, see https://stackoverflow.com/questions/59558252/make-zsh-prompt-update-each-time-a-command-is-executed
+# A better alternative is to add a precmd_functions, as below
+#setopt PROMPT_SUBST
 
 # --- Prompt ---
 
-# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
-# Last directory, green check if zero return code else red cross, and prompt
-PROMPT='%F{blue}%1~%f %(?.%F{green}%f.%F{red}%f) %F{blue}%(!.#.>)%f '
+_prompt_git_head()
+{
+	local cwd=${1:-`pwd`}
 
-# Time on the right
-#RPROMPT='%F{#cc9944}%*%f'
+	# Exit if not a git repo
+	(git -C "$cwd" rev-parse --git-dir > /dev/null 2>&1) || return 0
+
+	local res=''
+
+	# If on a branch, then output branch name
+	local symbolic_ref=$(git -C "$cwd" symbolic-ref -q HEAD)
+	if [[ -n $symbolic_ref ]]; then
+		res="%F{green}(${symbolic_ref#refs/heads/})%f"
+	fi
+
+	# If HEAD is detached, then output commit hash
+	if [[ -z $res ]]; then
+		#local commit_hash=`git -C "$cwd" rev-parse HEAD`
+		#res=${commit_hash:0:7}
+		# from https://stackoverflow.com/questions/39689789/zsh-setopt-prompt-subst-not-working
+		res=$(git name-rev --name-only --no-undefined --always HEAD)
+		res="%F{red}(${res})%f"
+	fi
+
+	echo $res
+}
+
+_prompt()
+{
+	# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+	# Also see https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
+
+	# cwd name, is prev command succeeded, prompt
+	PROMPT='%F{blue}%1~%f %(?.%F{green}%f.%F{red}%f) %F{white}%(!.#.>)%f '
+
+	# git branch
+	RPROMPT='$(_prompt_git_head)'
+}
+
+precmd_functions+=(_prompt)
 
 
 # --- Aliases ---
@@ -57,10 +93,10 @@ alias vim="nvim"
 alias vi="nvim"
 
 # fzf, open as a tmux window
-alias fzf="fzf --tmux center"
+#alias fzf="fzf --tmux center"
 
 # Git aliases
-alias gs="git status -sb"
+alias gs="git status -s"
 alias ga="git add"
 alias gaa="git add -A"
 alias gc="git commit"
