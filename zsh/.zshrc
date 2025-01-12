@@ -71,7 +71,7 @@ _prompt()
 	PROMPT='%F{blue}%1~%f %(?.%F{green}%f.%F{red}%f) %F{white}%(!.#.>)%f '
 
 	# git branch
-	RPROMPT='$(_prompt_git_head)'
+	RPROMPT="$(_prompt_git_head)"
 }
 
 precmd_functions+=(_prompt)
