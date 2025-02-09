@@ -1,16 +1,1 @@
-# Ignore everything:
 *
-
-# Except these:
-!.gitignore
-!LICENSE
-!README.md
-!manage.sh
-!iterm2/
-!karabiner-elements/
-!layouts/
-!nvim/
-!tmux/
-!vim/
-!zsh/
-
