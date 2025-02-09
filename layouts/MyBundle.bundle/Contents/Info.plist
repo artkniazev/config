@@ -8,18 +8,29 @@
 	<string>MyBundle</string>
 	<key>CFBundleVersion</key>
 	<string>0.1.0</string>
-	<key>KLInfo_English</key>
+	<key>KLInfo_english.colemakdh</key>
 	<dict>
 		<key>TICapsLockLanguageSwitchCapable</key>
 		<false/>
 		<key>TISIconIsTemplate</key>
 		<false/>
 		<key>TISInputSourceID</key>
-		<string>org.sil.ukelele.keyboardlayout.mybundle.english</string>
+		<string>org.sil.ukelele.keyboardlayout.mybundle.english.colemakdh</string>
 		<key>TISIntendedLanguage</key>
 		<string>en-US</string>
 	</dict>
-	<key>KLInfo_Russian</key>
+	<key>KLInfo_english.qwerty</key>
+	<dict>
+		<key>TICapsLockLanguageSwitchCapable</key>
+		<false/>
+		<key>TISIconIsTemplate</key>
+		<false/>
+		<key>TISInputSourceID</key>
+		<string>org.sil.ukelele.keyboardlayout.mybundle.english.qwerty</string>
+		<key>TISIntendedLanguage</key>
+		<string>en-US</string>
+	</dict>
+	<key>KLInfo_russian</key>
 	<dict>
 		<key>TICapsLockLanguageSwitchCapable</key>
 		<false/>
