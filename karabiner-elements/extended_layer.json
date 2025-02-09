@@ -1,0 +1,229 @@
+{
+    "description": "right_command -> extended layer (move, change layout, launch programs)",
+    "manipulators": [
+        {
+            "from": { "key_code": "right_command" },
+            "to": [
+                {
+                    "set_variable": {
+                        "name": "extended_layer",
+                        "value": 1
+                    }
+                }
+            ],
+            "to_after_key_up": [
+                {
+                    "set_variable": {
+                        "name": "extended_layer",
+                        "value": 0
+                    }
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "e" },
+            "to": { "key_code": "up_arrow" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "d" },
+            "to": { "key_code": "down_arrow" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "s" },
+            "to": { "key_code": "left_arrow" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "f" },
+            "to": { "key_code": "right_arrow" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "q" },
+            "to": { "key_code": "page_up" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "a" },
+            "to": { "key_code": "page_down" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "w" },
+            "to": { "key_code": "home" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "r" },
+            "to": { "key_code": "end" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "v" },
+            "to": { "key_code": "delete_or_backspace" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "c" },
+            "to": { "key_code": "delete_forward" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "spacebar" },
+            "to": { "key_code": "return_or_enter" },
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "m" },
+            "to": [{ "select_input_source": { "input_source_id": "mybundle.english" } }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "comma" },
+            "to": [{ "select_input_source": { "input_source_id": "mybundle.russian" } }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "period" },
+            "to": [{ "select_input_source": { "input_source_id": "keylayout.ABC" } }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "u" },
+            "to": [{ "shell_command": "open -a 'Google Chrome.app'" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "i" },
+            "to": [{ "shell_command": "open -a 'iterm.app'" }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "o" },
+            "to": [{ "shell_command": "open -a 'obsidian.app'" }],
+            "type": "basic"
+        }
+    ]
+}

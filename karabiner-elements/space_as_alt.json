@@ -1,0 +1,25 @@
+{
+    "comment": "https://github.com/pqrs-org/Karabiner-Elements/issues/1207#issuecomment-476023931",
+    "description": "spacebar -> left_alt (spacebar if pressed alone)",
+    "manipulators": [
+        {
+            "from": {
+                "key_code": "spacebar",
+                "modifiers": { "optional": ["any"] }
+            },
+            "parameters": {
+                "basic.to_delayed_action_delay_milliseconds": 50,
+                "basic.to_if_held_down_threshold_milliseconds": 50
+            },
+            "to_delayed_action": { "to_if_canceled": [{ "key_code": "spacebar" }] },
+            "to_if_alone": [
+                {
+                    "halt": true,
+                    "key_code": "spacebar"
+                }
+            ],
+            "to_if_held_down": [{ "key_code": "left_alt" }],
+            "type": "basic"
+        }
+    ]
+}
