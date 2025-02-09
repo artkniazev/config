@@ -1,5 +1,5 @@
 {
-    "description": "right_command -> extended layer (move, change layout, launch programs)",
+    "description": "extended layer",
     "manipulators": [
         {
             "from": { "key_code": "right_command" },
@@ -162,7 +162,7 @@
                 }
             ],
             "from": { "key_code": "m" },
-            "to": [{ "select_input_source": { "input_source_id": "mybundle.english" } }],
+            "to": [{ "select_input_source": { "input_source_id": "mybundle.english.colemakdh" } }],
             "type": "basic"
         },
         {
@@ -186,6 +186,18 @@
                 }
             ],
             "from": { "key_code": "period" },
+            "to": [{ "select_input_source": { "input_source_id": "mybundle.english.qwerty" } }],
+            "type": "basic"
+        },
+        {
+            "conditions": [
+                {
+                    "name": "extended_layer",
+                    "type": "variable_if",
+                    "value": 1
+                }
+            ],
+            "from": { "key_code": "slash" },
             "to": [{ "select_input_source": { "input_source_id": "keylayout.ABC" } }],
             "type": "basic"
         },
