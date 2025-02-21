@@ -86,7 +86,8 @@ alias fgrep='fgrep --color=auto'
 alias wgrep='egrep --color=auto'
 alias ls='ls -kpFG'
 alias lldb='PATH="/usr/bin:$PATH" /usr/bin/lldb'
-alias man='tmux split-window -h man'
+alias mman='tmux split-window -h man'
+alias mann='tmux split-window -v man'
 
 # NeoVim
 alias vim="nvim"
@@ -103,4 +104,8 @@ alias gc="git commit"
 alias gca="git commit --amend"
 alias gp="git push"
 alias gpf="git push --force"
+alias gl="git log"
+alias glg="git --no-pager log --oneline --graph"
+alias gbr="git branch"
+alias gsw="git switch"
 
