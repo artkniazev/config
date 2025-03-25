@@ -595,6 +595,30 @@
                                         "value": 1
                                     }
                                 ],
+                                "from": { "key_code": "h" },
+                                "to": [{ "key_code": "open_bracket" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "n" },
+                                "to": [{ "key_code": "close_bracket" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": { "key_code": "j" },
                                 "to": [
                                     {
@@ -646,7 +670,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "comma" },
+                                "from": { "key_code": "l" },
                                 "to": [
                                     {
                                         "key_code": "close_bracket",
@@ -663,8 +687,13 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "l" },
-                                "to": [{ "key_code": "open_bracket" }],
+                                "from": { "key_code": "comma" },
+                                "to": [
+                                    {
+                                        "key_code": "comma",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -676,7 +705,12 @@
                                     }
                                 ],
                                 "from": { "key_code": "period" },
-                                "to": [{ "key_code": "close_bracket" }],
+                                "to": [
+                                    {
+                                        "key_code": "period",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -783,6 +817,23 @@
                                 "to": [
                                     {
                                         "key_code": "backslash",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "slash" },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
                                         "modifiers": ["shift"]
                                     }
                                 ],
