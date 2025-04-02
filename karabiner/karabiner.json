@@ -1,19 +1,13 @@
 {
-    "global": { "check_for_updates_on_startup": false },
+    "global": {
+        "ask_for_confirmation_before_quitting": false,
+        "check_for_updates_on_startup": false,
+        "enable_notification_window": false
+    },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
-                    {
-                        "description": "caps_lock -> left_control",
-                        "manipulators": [
-                            {
-                                "from": { "key_code": "caps_lock" },
-                                "to": [{ "key_code": "left_control" }],
-                                "type": "basic"
-                            }
-                        ]
-                    },
                     {
                         "description": "extended layer",
                         "manipulators": [
@@ -290,7 +284,7 @@
                                     "key_code": "j",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": { "key_code": "left_control" },
+                                "to": { "key_code": "left_command" },
                                 "type": "basic"
                             },
                             {
@@ -335,7 +329,7 @@
                                     "key_code": "semicolon",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": { "key_code": "left_command" },
+                                "to": { "key_code": "left_control" },
                                 "type": "basic"
                             },
                             {
@@ -346,8 +340,14 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "spacebar" },
-                                "to": { "key_code": "return_or_enter" },
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": {
+                                    "key_code": "return_or_enter",
+                                    "repeat": false
+                                },
                                 "type": "basic"
                             },
                             {
@@ -358,8 +358,11 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "m" },
-                                "to": [{ "select_input_source": { "input_source_id": "mybundle.english.colemakdh" } }],
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": { "key_code": "escape" },
                                 "type": "basic"
                             },
                             {
@@ -370,8 +373,14 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "comma" },
-                                "to": [{ "select_input_source": { "input_source_id": "keylayout.ABC" } }],
+                                "from": {
+                                    "key_code": "comma",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": {
+                                    "key_code": "tab",
+                                    "modifiers": ["shift"]
+                                },
                                 "type": "basic"
                             },
                             {
@@ -382,8 +391,26 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "period" },
-                                "to": [{ "select_input_source": { "input_source_id": "keylayout.Russian" } }],
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": { "key_code": "tab" },
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "extended_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "slash",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": { "key_code": "escape" },
                                 "type": "basic"
                             },
                             {
@@ -408,18 +435,6 @@
                                 ],
                                 "from": { "key_code": "i" },
                                 "to": [{ "shell_command": "open -a 'iterm.app'" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "extended_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "o" },
-                                "to": [{ "shell_command": "open -a 'obsidian.app'" }],
                                 "type": "basic"
                             }
                         ]
@@ -533,7 +548,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "w" },
+                                "from": { "key_code": "z" },
                                 "to": [{ "key_code": "4" }],
                                 "type": "basic"
                             },
@@ -545,7 +560,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "e" },
+                                "from": { "key_code": "x" },
                                 "to": [{ "key_code": "5" }],
                                 "type": "basic"
                             },
@@ -557,7 +572,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "r" },
+                                "from": { "key_code": "q" },
                                 "to": [{ "key_code": "6" }],
                                 "type": "basic"
                             },
@@ -569,7 +584,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "x" },
+                                "from": { "key_code": "w" },
                                 "to": [{ "key_code": "7" }],
                                 "type": "basic"
                             },
@@ -581,7 +596,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "c" },
+                                "from": { "key_code": "e" },
                                 "to": [{ "key_code": "8" }],
                                 "type": "basic"
                             },
@@ -593,7 +608,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "v" },
+                                "from": { "key_code": "r" },
                                 "to": [{ "key_code": "9" }],
                                 "type": "basic"
                             },
@@ -656,7 +671,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "b" },
+                                "from": { "key_code": "c" },
                                 "to": [
                                     {
                                         "key_code": "6",
@@ -673,7 +688,24 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "q" },
+                                "from": { "key_code": "v" },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "b" },
                                 "to": [
                                     {
                                         "key_code": "1",
@@ -691,19 +723,12 @@
                                     }
                                 ],
                                 "from": { "key_code": "h" },
-                                "to": [{ "key_code": "open_bracket" }],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
+                                "to": [
                                     {
-                                        "name": "symbol_layer",
-                                        "type": "variable_if",
-                                        "value": 1
+                                        "key_code": "0",
+                                        "modifiers": ["shift"]
                                     }
                                 ],
-                                "from": { "key_code": "n" },
-                                "to": [{ "key_code": "close_bracket" }],
                                 "type": "basic"
                             },
                             {
@@ -731,13 +756,37 @@
                                         "value": 1
                                     }
                                 ],
-                                "from": { "key_code": "m" },
+                                "from": { "key_code": "grave_accent_and_tilde" },
                                 "to": [
                                     {
-                                        "key_code": "0",
+                                        "key_code": "grave_accent_and_tilde",
                                         "modifiers": ["shift"]
                                     }
                                 ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "n" },
+                                "to": [{ "key_code": "close_bracket" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "m" },
+                                "to": [{ "key_code": "open_bracket" }],
                                 "type": "basic"
                             },
                             {
@@ -1137,729 +1186,33 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "symbol_layer",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "right_command",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "key_code": "return_or_enter" }],
+                                "type": "basic"
                             }
                         ]
                     },
                     {
-                        "description": "shift layer on k or d+another key",
+                        "description": "caps_lock -> left_control",
                         "manipulators": [
                             {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "extended_layer",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
                                 "from": {
-                                    "key_code": "d",
+                                    "key_code": "caps_lock",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 50,
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        { "key_code": "d" },
-                                        {
-                                            "set_variable": {
-                                                "name": "shift_layer",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "d"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    },
-                                    {
-                                        "name": "extended_layer",
-                                        "type": "variable_if",
-                                        "value": 0
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 50,
-                                    "basic.to_if_held_down_threshold_milliseconds": 50
-                                },
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [
-                                        { "key_code": "k" },
-                                        {
-                                            "set_variable": {
-                                                "name": "shift_layer",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "halt": true,
-                                        "key_code": "k"
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_held_down": [
-                                    {
-                                        "set_variable": {
-                                            "name": "shift_layer",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "q" },
-                                "to": [
-                                    {
-                                        "key_code": "q",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "w" },
-                                "to": [
-                                    {
-                                        "key_code": "w",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "e" },
-                                "to": [
-                                    {
-                                        "key_code": "e",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "r" },
-                                "to": [
-                                    {
-                                        "key_code": "r",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "t" },
-                                "to": [
-                                    {
-                                        "key_code": "t",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "y" },
-                                "to": [
-                                    {
-                                        "key_code": "y",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "u" },
-                                "to": [
-                                    {
-                                        "key_code": "u",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "i" },
-                                "to": [
-                                    {
-                                        "key_code": "i",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "o" },
-                                "to": [
-                                    {
-                                        "key_code": "o",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "p" },
-                                "to": [
-                                    {
-                                        "key_code": "p",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "open_bracket" },
-                                "to": [
-                                    {
-                                        "key_code": "open_bracket",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "close_bracket" },
-                                "to": [
-                                    {
-                                        "key_code": "close_bracket",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "a" },
-                                "to": [
-                                    {
-                                        "key_code": "a",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "s" },
-                                "to": [
-                                    {
-                                        "key_code": "s",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "d" },
-                                "to": [
-                                    {
-                                        "key_code": "d",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "f" },
-                                "to": [
-                                    {
-                                        "key_code": "f",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "g" },
-                                "to": [
-                                    {
-                                        "key_code": "g",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "h" },
-                                "to": [
-                                    {
-                                        "key_code": "h",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "j" },
-                                "to": [
-                                    {
-                                        "key_code": "j",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "k" },
-                                "to": [
-                                    {
-                                        "key_code": "k",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "l" },
-                                "to": [
-                                    {
-                                        "key_code": "l",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "semicolon" },
-                                "to": [
-                                    {
-                                        "key_code": "semicolon",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "quote" },
-                                "to": [
-                                    {
-                                        "key_code": "quote",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "backslash" },
-                                "to": [
-                                    {
-                                        "key_code": "backslash",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "grave_accent_and_tilde" },
-                                "to": [
-                                    {
-                                        "key_code": "grave_accent_and_tilde",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "z" },
-                                "to": [
-                                    {
-                                        "key_code": "z",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "x" },
-                                "to": [
-                                    {
-                                        "key_code": "x",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "c" },
-                                "to": [
-                                    {
-                                        "key_code": "c",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "v" },
-                                "to": [
-                                    {
-                                        "key_code": "v",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "b" },
-                                "to": [
-                                    {
-                                        "key_code": "b",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "n" },
-                                "to": [
-                                    {
-                                        "key_code": "n",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "m" },
-                                "to": [
-                                    {
-                                        "key_code": "m",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "comma" },
-                                "to": [
-                                    {
-                                        "key_code": "comma",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "period" },
-                                "to": [
-                                    {
-                                        "key_code": "period",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "shift_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "slash" },
-                                "to": [
-                                    {
-                                        "key_code": "slash",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
+                                "to": [{ "key_code": "left_control" }],
                                 "type": "basic"
                             }
                         ]
@@ -1868,7 +1221,10 @@
             },
             "name": "Programming",
             "selected": true,
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            "virtual_hid_keyboard": {
+                "indicate_sticky_modifier_keys_state": false,
+                "keyboard_type_v2": "ansi"
+            }
         },
         {
             "name": "Gaming",
