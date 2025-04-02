@@ -1,0 +1,14 @@
+{
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "workbench.activityBar.location": "bottom",
+    "editor.accessibilitySupport": "off",
+    "editor.fontSize": 14,
+    "editor.fontWeight": "500",
+    "editor.fontVariations": true,
+    "breadcrumbs.enabled": false,
+    "editor.fontFamily": "JetBrains NerdFont Mono, JetBrains Mono, Menlo, Monaco, 'Courier New', monospace",
+    "chat.commandCenter.enabled": false,
+    "workbench.layoutControl.enabled": false,
+    "workbench.navigationControl.enabled": false,
+    "window.commandCenter": false
+}
