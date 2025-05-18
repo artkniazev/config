@@ -7,6 +7,7 @@
  '(global-display-line-numbers-mode t) ; show static line numbers
  '(scroll-bar-mode nil) ; hide scrollbar
  '(tool-bar-mode nil) ; hide tool bar
+ '(menu-bar-mode nil) ; hide menu bar
  '(tooltip-mode nil)) ; hide tooltip
 
 (custom-set-faces
@@ -18,14 +19,17 @@
 		:height 150
 	       	:width normal)))))
 
-;;; find-file-at-point bindings to use C-x C-f to go to files under cursor
-;;; see https://stackoverflow.c:om/a/259376
+;; find-file-at-point bindings to use C-x C-f to go to files under cursor
+;; see https://stackoverflow.c:om/a/259376
 
 (ffap-bindings)
 
-;;; https://arne.me/blog/emacs-from-scratch-part-one-foundations
-;;; https://www.reddit.com/r/emacs/comments/cbkmde/comment/eth2wl3
-;;; hide startup message, open scratch at startup
+;; global auto revert to reload files when they are changed on disk
+(global-auto-revert-mode 1)
+
+;; https://arne.me/blog/emacs-from-scratch-part-one-foundations
+;; https://www.reddit.com/r/emacs/comments/cbkmde/comment/eth2wl3
+;; hide startup message, open scratch at startup
 
 (use-package emacs
   :init
@@ -37,12 +41,12 @@
   (defun display-startup-echo-area-message ()
     (message "")))
 
-;;; use y or n in confirmation messages
+;; use y or n in confirmation messages
 (use-package emacs
   :init
   (defalias 'yes-or-no-p 'y-or-n-p))
 
-;;; use utf-8
+;; use utf-8
 (use-package emacs
   :init
   (set-charset-priority 'unicode)
@@ -55,9 +59,9 @@
   (prefer-coding-system 'utf-8)
   (setq default-process-coding-system '(utf-8-unix . utf-8-unix)))
 
-;;; map Cyrilic ЙЦУКЕН to Latin QWERTY
-;;; may work only in standalone app, not in terminal due to C-<cyrilic char> not being sent
-;;; https://www.reddit.com/r/emacs/comments/kbqdj7/comment/gfkodwo
+;; map Cyrilic ЙЦУКЕН to Latin QWERTY
+;; may work only in standalone app, not in terminal due to C-<cyrilic char> not being sent
+;; https://www.reddit.com/r/emacs/comments/kbqdj7/comment/gfkodwo
 (require 'cl-lib)
 (cl-loop
   for from across "1234567890-=йцукенгшщзхъфывапролджэёячсмитьбю/!\"№%:,.;()_+ЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЁЯЧСМИТЬБЮ?"
