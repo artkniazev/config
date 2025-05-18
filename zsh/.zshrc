@@ -13,7 +13,7 @@ HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 # Save timestamps and time elapsed in history
 setopt EXTENDED_HISTORY
 # Share history across multiple zsh sessions
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 # Append to history
 setopt APPEND_HISTORY
 # Adds commands as they are typed, not at shell exit
@@ -27,8 +27,8 @@ setopt HIST_FIND_NO_DUPS
 # Removes blank lines from history
 setopt HIST_REDUCE_BLANKS
 # Autocorrection
-setopt CORRECT
-setopt CORRECT_ALL
+#setopt CORRECT
+#setopt CORRECT_ALL
 # Allow susbtitutions in a prompt, see https://stackoverflow.com/questions/59558252/make-zsh-prompt-update-each-time-a-command-is-executed
 # A better alternative is to add a precmd_functions, as below
 #setopt PROMPT_SUBST
@@ -93,6 +93,10 @@ alias mann='tmux split-window -v man'
 alias vim="nvim"
 alias vi="nvim"
 
+# Emacs
+alias em="emacs -nw"
+alias emacs="emacs -nw"
+
 # fzf, open as a tmux window
 #alias fzf="fzf --tmux center"
 
@@ -108,4 +112,7 @@ alias gl="git log"
 alias glg="git --no-pager log --oneline --graph"
 alias gbr="git branch"
 alias gsw="git switch"
+
+# --- Env vars ---
+export XDG_CONFIG_HOME="$HOME/.config/"
 

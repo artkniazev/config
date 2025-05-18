@@ -374,43 +374,10 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "comma",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": {
-                                    "key_code": "tab",
-                                    "modifiers": ["shift"]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "extended_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "period",
+                                    "key_code": "m",
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": { "key_code": "tab" },
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "extended_layer",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "slash",
-                                    "modifiers": { "optional": ["any"] }
-                                },
-                                "to": { "key_code": "escape" },
                                 "type": "basic"
                             },
                             {

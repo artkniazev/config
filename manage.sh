@@ -25,6 +25,11 @@ _init_zshrc()
 	rm $tmpfile
 }
 
+_init_emacs()
+{
+    echo "(load "$HOME/.config/emacs/init.el)" > ~/.emacs
+}
+
 _init()
 {
 	_init_zshrc
