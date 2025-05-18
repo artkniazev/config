@@ -21,11 +21,15 @@
 
 ;; find-file-at-point bindings to use C-x C-f to go to files under cursor
 ;; see https://stackoverflow.c:om/a/259376
-
 (ffap-bindings)
 
 ;; global auto revert to reload files when they are changed on disk
 (global-auto-revert-mode 1)
+
+;; https://www.reddit.com/r/emacs/comments/1aufydk/comment/kr4qu0v
+;; auto save files on change
+(auto-save-visited-mode +1)
+(setq auto-save-visited-interval 1)
 
 ;; https://arne.me/blog/emacs-from-scratch-part-one-foundations
 ;; https://www.reddit.com/r/emacs/comments/cbkmde/comment/eth2wl3
