@@ -10,6 +10,9 @@
  (unless (package-installed-p package)
    (package-install package)))
 
+;; try changing to for all required packages
+;; (use-package go-mode :ensure t)
+
 ;; Custom options
 (setopt user-full-name "Artem E. Knyazev"
 	user-mail-address "artem.e.knyazev@gmail.com")
@@ -28,6 +31,13 @@
 (column-number-mode t)
 (global-display-line-numbers-mode t)
 (setq-default display-line-numbers-width 3)
+
+;; https://youtu.be/51eSeqcaikM?list=PLEoMzSkcN8oNmd98m_6FoaJseUsa6QGm2
+(recentf-mode 1) ; use M-x recentf-open-files
+(setq history-length 100)
+(savehist-mode 1) ; history in C-s search and other minibuffers
+(save-place-mode 1) ; restore previous position in a file when opening
+(setq use-dialog-box nil)
 
 ;; Mute a follow symlinks question
 ;; https://stackoverflow.com/a/30900018
@@ -86,7 +96,6 @@
 ;; https://emacsredux.com/blog/2022/06/03/enable-mouse-support-in-terminal-emacs/
 (xterm-mouse-mode 1)
 
-
 ;; https://wikemacs.org/wiki/Smex
 (require 'smex) ; Not needed if you use package.el
 (smex-initialize) ; Can be omitted. This might cause a (minimal) delay when Smex is auto-initialized on its first run.
@@ -121,10 +130,11 @@
 (use-package emacs
   :init
   (setq-default inhibit-startup-screen t)
+  (setq-default major-mode 'org-mode) ; org-mode as default mode
   (setq inhibit-splash-screen t)
   (setq inhibit-startup-message t)
   (setq initial-scratch-message nil)
-  (setq initial-major-mode 'fundamental-mode)
+  (setq initial-major-mode 'org-mode)
   (defalias 'yes-or-no-p 'y-or-n-p)
   (defun display-startup-echo-area-message ()
     (message "")))
