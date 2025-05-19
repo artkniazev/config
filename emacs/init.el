@@ -1,4 +1,28 @@
 ;;; -*- lexical-binding: t -*-
+(setopt user-full-name "Artem E. Knyazev"
+	user-mail-address "artem.e.knyazev@gmail.com")
+
+(setq custom-file "~/.config/emacs/custom.el") ; custom options go to a separate file
+(load-file custom-file)
+(set-frame-font "JetBrainsMono Nerd Font Mono 15" nil t)
+(load-theme 'wheatgrass t)
+(blink-cursor-mode 0)
+(tool-bar-mode 0)
+(tooltip-mode 1)
+(menu-bar-mode 0)
+(scroll-bar-mode 0)
+(column-number-mode 1)
+(show-paren-mode 1)
+(column-number-mode t)
+(global-display-line-numbers-mode t)
+(setq-default display-line-numbers-width 3)
+
+(when (string= system-type "darwin")       
+  (setq dired-use-ls-dired nil))
+
+;; https://emacsredux.com/blog/2022/06/03/enable-mouse-support-in-terminal-emacs/
+(xterm-mouse-mode 1)
+
 ;; https://www.melpa.org/#/getting-started
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -12,25 +36,13 @@
 
 ;; https://www.masteringemacs.org/article/introduction-to-ido-mode
 ;; Interactive Do It mode; pressing tab shows autocompletion
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(set-frame-font "JetBrainsMono Nerd Font Mono 15" nil t)
-(load-theme 'wheatgrass t)
-(blink-cursor-mode 0)
-(tool-bar-mode 0)
-(tooltip-mode 1)
-(menu-bar-mode 0)
-(scroll-bar-mode 0)
-(column-number-mode 1)
-(show-paren-mode 1)
-(column-number-mode t)
-(global-display-line-numbers-mode t)
+;(setq ido-enable-flex-matching t)
+;(setq ido-everywhere t)
+;(ido-mode 1)
 
 ;; find-file-at-point bindings to use C-x C-f to go to files under cursor
 ;; see https://stackoverflow.c:om/a/259376
-(ffap-bindings)
+;(ffap-bindings)
 
 ;; global auto revert to reload files when they are changed on disk
 (global-auto-revert-mode 1)
@@ -86,4 +98,3 @@
     (kbd (concat "M-" (string from))) (kbd (concat "M-" (string to))))
   (define-key function-key-map
     (kbd (concat "C-M-" (string from))) (kbd (concat "C-M-" (string to)))))
-

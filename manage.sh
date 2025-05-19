@@ -27,7 +27,9 @@ _init_zshrc()
 
 _init_emacs()
 {
-    echo "(load "$HOME/.config/emacs/init.el)" > ~/.emacs
+    ln ~/.config/emacs/init.el ~/.emacs
+    mkdir -p ~/.emacs.d
+    ln ~/.config/emacs/early-init.el ~/.emacs.d/early-init.el
 }
 
 _init()
