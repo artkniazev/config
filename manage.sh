@@ -27,14 +27,14 @@ _init_zshrc()
 
 _init_emacs()
 {
-    ln ~/.config/emacs/init.el ~/.emacs
-    mkdir -p ~/.emacs.d
-    ln ~/.config/emacs/early-init.el ~/.emacs.d/early-init.el
+    # Both standalone and terminal apps can read configs from symlinked dir
+    ln -s ~/.config/emacs ~/.emacs.d
 }
 
 _init()
 {
-	_init_zshrc
+    _init_zshrc
+    _init_emacs
 }
 
 _install()
