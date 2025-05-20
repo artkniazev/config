@@ -10,10 +10,9 @@
 ;; https://emacs.stackexchange.com/a/28933
 ;; Try changing to for all required packages
 ;; (use-package go-mode :ensure t)
-(dolist (package '(use-package smex magit go-mode))
+(dolist (package '(use-package smex magit go-mode helm))
  (unless (package-installed-p package)
    (package-install package)))
-
 
 ;;; --- Custom options ---
 
@@ -37,6 +36,10 @@
 ;; Convenience
 (blink-cursor-mode 0)
 (show-paren-mode 1)
+(pixel-scroll-precision-mode t) ; smooth scrolling in native app
+
+;; Indentation
+(setq-default indent-tabs-mode nil)
 
 ;; Show line numbers; set line number gutter min width
 (column-number-mode t)
@@ -58,14 +61,6 @@
 ;; https://emacs.stackexchange.com/a/4240
 (setq backup-by-copying-when-linked t)
 
-;; Map C-x C-b to ibuffer instead
-(global-set-key [remap list-buffers] 'ibuffer)
-
-;; Restore Home&End keys behavior on MacOS
-;; https://www.reddit.com/r/emacs/comments/j6vwa3/comment/g8111mv
-(global-set-key (kbd "<home>") 'move-beginning-of-line)
-(global-set-key (kbd "<end>") 'move-end-of-line)
-
 ;; Wrap search -- when fail type again C-s to continue from above
 ;; https://stackoverflow.com/a/287067
 (defadvice isearch-search (after isearch-no-fail activate)
@@ -84,25 +79,6 @@
 (setq ring-bell-function (lambda ()
                            (invert-face 'mode-line)
                            (run-with-timer 0.05 nil 'invert-face 'mode-line)))
-
-;; C-RET inserts line below, doesn't split the line; C-S-RET inserts line above, same
-;; https://web.archive.org/web/20241218055416/http://whattheemacsd.com/editing-defuns.el-01.html
-(global-set-key
- (kbd "<C-return>")
- (lambda ()
-   (interactive)
-   (end-of-line)
-   (newline)
-   (indent-for-tab-command)))
-
-(global-set-key
- (kbd "<C-S-return>")
- (defun open-line-above ()
-   (interactive)
-   (beginning-of-line)
-   (newline)
-   (forward-line -1)
-   (indent-for-tab-command)))
 
 ;; https://emacsredux.com/blog/2022/06/03/enable-mouse-support-in-terminal-emacs/
 (xterm-mouse-mode 1)
@@ -125,6 +101,51 @@
 ;; Auto save files on change
 (auto-save-visited-mode +1)
 (setq auto-save-visited-interval 1)
+
+;; Dired
+(require 'dired-x)
+
+
+;;; --- Custom shortcuts ---
+
+;; C-RET inserts line below, doesn't split the line; C-S-RET inserts line above, same
+;; https://web.archive.org/web/20241218055416/http://whattheemacsd.com/editing-defuns.el-01.html
+(global-set-key
+ (kbd "<C-return>")
+ (lambda ()
+   (interactive)
+   (end-of-line)
+   (newline)
+   (indent-for-tab-command)))
+
+(global-set-key
+ (kbd "<C-S-return>")
+ (defun open-line-above ()
+   (interactive)
+   (beginning-of-line)
+   (newline)
+   (forward-line -1)
+   (indent-for-tab-command)))
+
+;; Map C-x C-b to ibuffer instead
+(global-set-key [remap list-buffers] 'ibuffer)
+;; M-SPC cycles spaces instead of removing space
+(global-set-key [remap just-one-space] 'cycle-spacing)
+
+;; Restore Home&End keys behavior on MacOS
+;; https://www.reddit.com/r/emacs/comments/j6vwa3/comment/g8111mv
+(global-set-key (kbd "<home>") 'move-beginning-of-line)
+(global-set-key (kbd "<end>") 'move-end-of-line)
+
+;; Simplify commenting in terminal because it can't receive C-;
+(global-set-key (kbd "<C-x ;>") 'comment-line)
+
+;; M-/ to hippie expand
+(global-set-key [remap dabbrev-expand] 'hippie-expand)
+
+;; MacOS defaults Cmd-Up to beginning of file, Cmd-Down to end of file
+(global-set-key (kbd "<s-up>") 'beginning-of-buffer)
+(global-set-key (kbd "<s-down>") 'end-of-buffer)
 
 
 ;;; --- Package-specific options ---
@@ -157,7 +178,7 @@
   (setq default-process-coding-system '(utf-8-unix . utf-8-unix)))
 
 ;; Map Cyrilic ЙЦУКЕН to Latin QWERTY
-;; May work only in standalone app, not in terminal due to C-<cyrilic char> not being sent
+;; May work only in native app, not in terminal due to C-<cyrilic char> not being sent
 ;; https://www.reddit.com/r/emacs/comments/kbqdj7/comment/gfkodwo
 (require 'cl-lib)
 (cl-loop
@@ -165,11 +186,14 @@
  for to   across "1234567890-=qwertyuiop[]asdfghjkl;'\\zxcvbnm,./!@#$%^&*()_+QWERTYUIOP{}ASDFGHJKL:\"|ZXCVBNM<>?"
  do
  (define-key function-key-map
-	     (kbd (string from)) (kbd (string to)))
+             (kbd (string from))
+             (kbd (string to)))
  (define-key function-key-map
-	     (kbd (concat "C-" (string from))) (kbd (concat "C-" (string to))))
+             (kbd (concat "C-" (string from)))
+             (kbd (concat "C-" (string to))))
  (define-key function-key-map
-	     (kbd (concat "M-" (string from))) (kbd (concat "M-" (string to))))
+             (kbd (concat "M-" (string from)))
+             (kbd (concat "M-" (string to))))
  (define-key function-key-map
-	     (kbd (concat "C-M-" (string from))) (kbd (concat "C-M-" (string to)))))
-(put 'scroll-left 'disabled nil)
+             (kbd (concat "C-M-" (string from)))
+             (kbd (concat "C-M-" (string to)))))
