@@ -1,33 +1,44 @@
 ;;; -*- lexical-binding: t -*-
 
+;;; --- Packages ---
+
 ;; https://www.melpa.org/#/getting-started
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
 ;; https://emacs.stackexchange.com/a/28933
+;; Try changing to for all required packages
+;; (use-package go-mode :ensure t)
 (dolist (package '(use-package smex magit go-mode))
  (unless (package-installed-p package)
    (package-install package)))
 
-;; try changing to for all required packages
-;; (use-package go-mode :ensure t)
 
-;; Custom options
+;;; --- Custom options ---
+
 (setopt user-full-name "Artem E. Knyazev"
 	user-mail-address "artem.e.knyazev@gmail.com")
 
-(setq custom-file "~/.config/emacs/custom.el") ; custom options go to a separate file
+;; Custom options go to a separate file
+(setq custom-file "~/.config/emacs/custom.el") 
 (load-file custom-file)
+
+;; Font, theme
 (set-frame-font "JetBrainsMono Nerd Font Mono 16" nil t)
 (load-theme 'wheatgrass t)
-(blink-cursor-mode 0)
-(tooltip-mode 1)
+
+;; Remove unnecessary UI elements
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)
-(column-number-mode 1)
+(tooltip-mode 1)
+
+;; Convenience
+(blink-cursor-mode 0)
 (show-paren-mode 1)
+
+;; Show line numbers; set line number gutter min width
 (column-number-mode t)
 (global-display-line-numbers-mode t)
 (setq-default display-line-numbers-width 3)
@@ -104,42 +115,35 @@
 
 ;; FIDO
 (fido-mode 1)
-;(fido-vertical-mode)
 
-;; windows
-;(global-set-key (kbd "M-o") 'other-window)
-;; move between windows w Shift+arrows
-;(windmove-default-keybindings)
-
-;; global auto revert to reload files when they are changed on disk
+;; Global auto revert to reload files when they are changed on disk
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 (global-auto-revert-mode 1)
 
 ;; https://www.reddit.com/r/emacs/comments/1aufydk/comment/kr4qu0v
-;; auto save files on change
+;; Auto save files on change
 (auto-save-visited-mode +1)
 (setq auto-save-visited-interval 1)
 
-;; https://emacsredux.com/blog/2020/12/04/maximize-the-emacs-frame-on-startup/
-;(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+
+;;; --- Package-specific options ---
 
 ;; https://arne.me/blog/emacs-from-scratch-part-one-foundations
 ;; https://www.reddit.com/r/emacs/comments/cbkmde/comment/eth2wl3
-;; hide startup message, open scratch at startup
+;; Hide startup message, open scratch at startup
 (use-package emacs
   :init
   (setq-default inhibit-startup-screen t)
-  (setq-default major-mode 'org-mode) ; org-mode as default mode
   (setq inhibit-splash-screen t)
   (setq inhibit-startup-message t)
   (setq initial-scratch-message nil)
-  (setq initial-major-mode 'org-mode)
+  (setq initial-major-mode 'fundamental-mode)
   (defalias 'yes-or-no-p 'y-or-n-p)
   (defun display-startup-echo-area-message ()
     (message "")))
 
-;; use utf-8
+;; Use utf-8
 (use-package emacs
   :init
   (set-charset-priority 'unicode)
@@ -152,8 +156,8 @@
   (prefer-coding-system 'utf-8)
   (setq default-process-coding-system '(utf-8-unix . utf-8-unix)))
 
-;; map Cyrilic ЙЦУКЕН to Latin QWERTY
-;; may work only in standalone app, not in terminal due to C-<cyrilic char> not being sent
+;; Map Cyrilic ЙЦУКЕН to Latin QWERTY
+;; May work only in standalone app, not in terminal due to C-<cyrilic char> not being sent
 ;; https://www.reddit.com/r/emacs/comments/kbqdj7/comment/gfkodwo
 (require 'cl-lib)
 (cl-loop
@@ -168,3 +172,4 @@
 	     (kbd (concat "M-" (string from))) (kbd (concat "M-" (string to))))
  (define-key function-key-map
 	     (kbd (concat "C-M-" (string from))) (kbd (concat "C-M-" (string to)))))
+(put 'scroll-left 'disabled nil)
