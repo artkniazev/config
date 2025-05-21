@@ -74,5 +74,5 @@ alias nv="nvim"
 
 # Emacs
 alias em="emacs -nw"
-alias emacs="emacs -nw"
+alias magit="emacs --eval '(progn (magit-status) (delete-other-windows))'"
 
