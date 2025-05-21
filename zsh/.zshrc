@@ -1,37 +1,22 @@
+# --- Env vars ---
+export LC_ALL=en_US.UTF-8
+export XDG_CONFIG_HOME="$HOME/.config/"
+
+
 # --- Shell Options ---
 
-export LC_ALL=en_US.UTF-8
-
 # https://scriptingosx.com/2019/06/moving-to-zsh-part-3-shell-options/
+setopt AUTO_CD                          # Use `cd` if directory name is used as a command
+setopt NO_CASE_GLOB                     # Case-insensitive glob completion
+HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history # Save history to a file
+setopt EXTENDED_HISTORY                 # Save timestamps and time elapsed in history
+setopt APPEND_HISTORY                   # Append to history
+setopt INC_APPEND_HISTORY               # Adds commands as they are typed, not at shell exit
+setopt HIST_EXPIRE_DUPS_FIRST           # Expire duplicates first
+setopt HIST_IGNORE_DUPS                 # Do not store duplications
+setopt HIST_FIND_NO_DUPS                # Ignore duplicates when searching
+setopt HIST_REDUCE_BLANKS               # Removes blank lines from history
 
-# Use `cd` if directory name is used as a command
-setopt AUTO_CD
-# Case-insensitive glob completion
-setopt NO_CASE_GLOB 
-# Save history to a file
-HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-# Save timestamps and time elapsed in history
-setopt EXTENDED_HISTORY
-# Share history across multiple zsh sessions
-#setopt SHARE_HISTORY
-# Append to history
-setopt APPEND_HISTORY
-# Adds commands as they are typed, not at shell exit
-setopt INC_APPEND_HISTORY
-# Expire duplicates first
-setopt HIST_EXPIRE_DUPS_FIRST 
-# Do not store duplications
-setopt HIST_IGNORE_DUPS
-# Ignore duplicates when searching
-setopt HIST_FIND_NO_DUPS
-# Removes blank lines from history
-setopt HIST_REDUCE_BLANKS
-# Autocorrection
-#setopt CORRECT
-#setopt CORRECT_ALL
-# Allow susbtitutions in a prompt, see https://stackoverflow.com/questions/59558252/make-zsh-prompt-update-each-time-a-command-is-executed
-# A better alternative is to add a precmd_functions, as below
-#setopt PROMPT_SUBST
 
 # --- Prompt ---
 
@@ -62,14 +47,12 @@ _prompt_git_head()
 	echo $res
 }
 
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+# Also see https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
 _prompt()
 {
-	# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
-	# Also see https://zsh.sourceforge.io/Doc/Release/Prompt-Expansion.html
-
 	# cwd name, is prev command succeeded, prompt
 	PROMPT='%F{blue}%1~%f %(?.%F{green}%f.%F{red}%f) %F{white}%(!.#.>)%f '
-
 	# git branch
 	RPROMPT="$(_prompt_git_head)"
 }
@@ -85,34 +68,11 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias wgrep='egrep --color=auto'
 alias ls='ls -kpFG'
-alias lldb='PATH="/usr/bin:$PATH" /usr/bin/lldb'
-alias mman='tmux split-window -h man'
-alias mann='tmux split-window -v man'
 
 # NeoVim
-alias vim="nvim"
-alias vi="nvim"
+alias nv="nvim"
 
 # Emacs
 alias em="emacs -nw"
 alias emacs="emacs -nw"
-
-# fzf, open as a tmux window
-#alias fzf="fzf --tmux center"
-
-# Git aliases
-alias gs="git status -s"
-alias ga="git add"
-alias gaa="git add -A"
-alias gc="git commit"
-alias gca="git commit --amend"
-alias gp="git push"
-alias gpf="git push --force"
-alias gl="git log"
-alias glg="git --no-pager log --oneline --graph"
-alias gbr="git branch"
-alias gsw="git switch"
-
-# --- Env vars ---
-export XDG_CONFIG_HOME="$HOME/.config/"
 
