@@ -1,10 +1,8 @@
 {
-  "Ansi 0 Color" : {
-    "Red Component" : 0,
-    "Color Space" : "P3",
-    "Blue Component" : 0,
-    "Alpha Component" : 1,
-    "Green Component" : 0
+  "Ansi 12 Color (Light)" : {
+    "Green Component" : 0.86277559999999998,
+    "Blue Component" : 0.9982605,
+    "Red Component" : 0.71165029999999996
   },
   "Ansi 15 Color (Dark)" : {
     "Red Component" : 0.43461182713508606,
@@ -13,8 +11,14 @@
     "Alpha Component" : 1,
     "Green Component" : 0.50213366746902466
   },
-  "Close Sessions On End" : 1,
-  "Non-ASCII Anti Aliased" : true,
+  "Show Timestamps" : 0,
+  "Foreground Color (Dark)" : {
+    "Red Component" : 0.54055839776992798,
+    "Color Space" : "P3",
+    "Blue Component" : 0.1928979754447937,
+    "Alpha Component" : 1,
+    "Green Component" : 0.20721453428268433
+  },
   "Cursor Text Color" : {
     "Red Component" : 0,
     "Color Space" : "P3",
@@ -35,6 +39,7 @@
   },
   "Initial Use Transparency" : false,
   "Mouse Reporting" : true,
+  "Allow modifyOtherKeys" : false,
   "Use Underline Color (Light)" : false,
   "Disable Window Resizing" : true,
   "Status Bar Layout" : {
@@ -60,6 +65,7 @@
     "Blue Component" : 0.37647059999999999,
     "Red Component" : 1
   },
+  "Initial Text" : "",
   "Selection Color (Dark)" : {
     "Green Component" : 0.22248570000000001,
     "Blue Component" : 0.51530609999999999,
@@ -328,7 +334,7 @@
     "Blue Component" : 0.67277030000000004,
     "Red Component" : 0.80941479999999999
   },
-  "Normal Font" : "JetBrainsMonoNFM-Medium 16",
+  "Normal Font" : "JetBrainsMonoNFM-Regular 16",
   "Use Selected Text Color (Dark)" : true,
   "Foreground Color" : {
     "Red Component" : 0.94117647409439087,
@@ -344,11 +350,11 @@
     "Alpha Component" : 1,
     "Green Component" : 1
   },
-  "Command" : "login -fpql user",
+  "Command" : "\/opt\/homebrew\/bin\/tmux new -A -s main",
   "Minimum Contrast (Light)" : 0,
   "Character Encoding" : 4,
   "Cursor Boost (Light)" : 0,
-  "Use libtickit protocol" : true,
+  "Use libtickit protocol" : false,
   "Cursor Text Color (Light)" : {
     "Green Component" : 1,
     "Blue Component" : 1,
@@ -361,7 +367,7 @@
     "Blue Component" : 0.99215690000000001,
     "Red Component" : 1
   },
-  "Window Type" : 15,
+  "Window Type" : 12,
   "Allow Title Setting" : false,
   "ASCII Anti Aliased" : true,
   "Use Tab Color (Dark)" : false,
@@ -432,6 +438,7 @@
     "Alpha Component" : 1,
     "Green Component" : 0.41503420472145081
   },
+  "Load Shell Integration Automatically" : false,
   "Ansi 0 Color (Light)" : {
     "Green Component" : 0.30978869999999997,
     "Blue Component" : 0.30978869999999997,
@@ -592,17 +599,13 @@
     "Alpha Component" : 1,
     "Green Component" : 0
   },
-  "Ansi 12 Color (Light)" : {
-    "Green Component" : 0.86277559999999998,
-    "Blue Component" : 0.9982605,
-    "Red Component" : 0.71165029999999996
-  },
-  "Show Timestamps" : 0,
-  "Foreground Color (Dark)" : {
-    "Red Component" : 0.54055839776992798,
+  "Ansi 0 Color" : {
+    "Red Component" : 0,
     "Color Space" : "P3",
-    "Blue Component" : 0.1928979754447937,
+    "Blue Component" : 0,
     "Alpha Component" : 1,
-    "Green Component" : 0.20721453428268433
-  }
+    "Green Component" : 0
+  },
+  "Close Sessions On End" : 1,
+  "Non-ASCII Anti Aliased" : true
 }
