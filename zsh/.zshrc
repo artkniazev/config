@@ -17,6 +17,7 @@ setopt HIST_IGNORE_DUPS                 # Do not store duplications
 setopt HIST_FIND_NO_DUPS                # Ignore duplicates when searching
 setopt HIST_REDUCE_BLANKS               # Removes blank lines from history
 
+bindkey -e # emacs input mode
 
 # --- Prompt ---
 
