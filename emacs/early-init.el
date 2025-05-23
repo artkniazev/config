@@ -43,6 +43,11 @@
 ;; Start every frame maximized
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;; https://stackoverflow.com/a/72426586
+;; Remove window title bar
+(add-to-list 'initial-frame-alist '(undecorated . t))
+(add-to-list 'default-frame-alist '(undecorated . t))
+
 ;; Avoid raising the *Messages* buffer if anything is still without
 ;; lexical bindings
 (setq warning-minimum-level :error)
