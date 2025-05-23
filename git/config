@@ -1,0 +1,37 @@
+[user]
+	name = artem.e.knyazev
+	email = artem.e.knyazev@yandex.ru
+
+[core]
+	editor = nvim
+
+[init]
+	defaultBranch = master
+
+[pull]
+	rebase = false
+
+[diff]
+	tool = nvimdiff
+	guitool = nvimdiff
+
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
+
+[mergetool]
+	keepBackup = false
+	prompt = true
+
+[mergetool "nvimdiff"]
+	layout = "LOCAL,BASE,REMOTE / MERGED"
+
+[difftool]
+	prompt = false
+
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
