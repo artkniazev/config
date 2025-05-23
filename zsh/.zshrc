@@ -71,6 +71,9 @@ alias ls='ls -kpFG'
 
 # NeoVim
 alias nv="nvim"
+alias vim="nvim"
+alias vi="nvim"
+alias vimdiff="nvim -d"
 
 # Emacs
 alias em="emacs -nw"
