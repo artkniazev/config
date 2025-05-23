@@ -57,7 +57,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "m",
+                                    "key_code": "semicolon",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
@@ -68,7 +68,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "n",
+                                    "key_code": "quote",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
