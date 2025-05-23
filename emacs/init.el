@@ -10,6 +10,14 @@
   :ensure nil
   :bind
   (
+   ;; Unmap zooming, use s--, s-=
+   ("C-<wheel-down>" . nil)
+   ("C-<double-wheel-down>" . nil)
+   ("C-<wheel-up>" . nil)
+   ("C-<double-wheel-up>" . nil)
+   ("C-<mouse-4>" . nil)
+   ("C-<mouse-5>" . nil)
+   
    ;; C-RET inserts line below, doesn't split the line; C-S-RET inserts line above, same
    ;; https://web.archive.org/web/20241218055416/http://whattheemacsd.com/editing-defuns.el-01.html
    ("<C-return>" . (lambda ()
