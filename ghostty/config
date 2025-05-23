@@ -1,4 +1,4 @@
-#command = /opt/homebrew/bin/tmux new -A -s main
+command = /opt/homebrew/bin/tmux new -A -s main
 window-height = 51
 window-width = 173
 confirm-close-surface = false
