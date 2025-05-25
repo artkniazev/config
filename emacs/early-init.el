@@ -12,7 +12,7 @@
   "Avoid flash of light when starting Emacs."
   (setq mode-line-format nil)
   ;; These colors should match your selected theme for maximum effect
-  (set-face-attribute 'default nil :background "black" :foreground "black"))
+  (set-face-attribute 'default nil :background "#1C1C1C" :foreground "#1C1C1C"))
 
 (defun emacs-solo/reset-default-foreground ()
   "Reset the foreground color of the default face."
@@ -26,7 +26,6 @@
       frame-inhibit-implied-resize t)
 
 ;; Prevent screen from flashing set colors&font and hide menu bars early
-(load-theme 'wheatgrass t)
 (tool-bar-mode 0)
 (menu-bar-mode 0)
 (scroll-bar-mode 0)

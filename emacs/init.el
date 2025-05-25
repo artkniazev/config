@@ -66,7 +66,6 @@
   (repeat-mode 1)
   (xterm-mouse-mode 1)
   (set-frame-font "JetBrainsMono Nerd Font Mono 16" nil t)
-  (load-theme 'wheatgrass t)
   (blink-cursor-mode 0)
   (show-paren-mode 1)
   (pixel-scroll-precision-mode t) ; smooth scrolling in native app
@@ -74,8 +73,8 @@
   (savehist-mode 1) ; history in C-s search and other minibuffers
   (save-place-mode 1) ; restore previous position in a file when opening
   (fido-mode 1)
-  (global-auto-revert-mode 1) ;Global auto revert to reload files when they are changed on disk
-  (auto-save-visited-mode +1) ; Auto save files on change
+  (global-auto-revert-mode 1) ; Global auto revert to reload files when they are changed on disk
+  (auto-save-visited-mode 1) ; Auto save files on change
 
   ;; Show line numbers; set line number gutter min width
   (column-number-mode t)
@@ -135,7 +134,7 @@
   (scroll-conservatively 100)
   (scroll-margin 0)
 
-  ;; no backup
+  ;; No backup
   (create-lockfiles nil)
   (make-backup-files nil)
   (backup-inhibited t)
@@ -230,26 +229,48 @@
   (("M-x" . smex)
    ("M-X" . smex-major-mode-commands)))
 
-(use-package helm
-  :ensure t
-  :defer t)
+;; (use-package helm
+;;   :ensure t
+;;   :defer t)
 
 (use-package magit
   :ensure t
   :defer t)
 
-(use-package projectile
-  :ensure t
-  :defer t
-  :init
-  (projectile-mode +1)
-  :bind
-  ("s-p" . projectile-command-map))
+;; (use-package projectile
+;;   :ensure t
+;;   :defer t
+;;   :init
+;;   (projectile-mode +1)
+;;   :bind
+;;   ("s-p" . projectile-command-map))
 
 (use-package go-mode
   :ensure t
   :defer t)
 
+;; Use main colors from vim `retrobox' theme
+(use-package srcery-theme
+  :ensure t
+  :custom
+  (srcery-black "#1c1c1c")
+  (srcery-red "#cc241d")
+  (srcery-green "#98971a")
+  (srcery-yellow "#d79921")
+  (srcery-blue "#458588")
+  (srcery-magenta "#b16286")
+  (srcery-cyan "#689d6a")
+  (srcery-white "#a89984")
+  (srcery-bright-black "#928374")
+  (srcery-bright-red "#fb4934")
+  (srcery-bright-green "#b8bb26")
+  (srcery-bright-yellow "#fabd2f")
+  (srcery-bright-blue "#83a598")
+  (srcery-bright-magenta "#d3869b")
+  (srcery-bright-cyan "#8ec07c")
+  (srcery-bright-white "#ebdbb2")
+  :config
+  (load-theme 'srcery t))
 
 ;;; --- Scripts ---
 
