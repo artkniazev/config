@@ -26,3 +26,4 @@ macos-option-as-alt = true
 macos-window-shadow = false
 macos-icon = holographic
 auto-update = check
+theme = retrobox
