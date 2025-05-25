@@ -14,7 +14,6 @@ window-padding-x = 0
 window-padding-y = 0
 window-padding-color = extend
 font-size = 16
-# ghostty +list-fonts
 font-family = JetBrainsMono Nerd Font Mono
 font-style = medium
 font-style-bold = bold
@@ -27,3 +26,4 @@ macos-window-shadow = false
 macos-icon = holographic
 auto-update = check
 theme = retrobox
+cursor-style = bar
