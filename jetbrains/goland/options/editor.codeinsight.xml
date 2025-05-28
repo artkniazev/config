@@ -1,0 +1,5 @@
+<application>
+  <component name="Go">
+    <option name="detectGoPackageFromClipboard" value="true" />
+  </component>
+</application>

@@ -1,0 +1,16 @@
+<application>
+  <component name="AdvancedSettings">
+    <option name="settings">
+      <map>
+        <entry key="editor.show.zoom.indicator" value="false" />
+        <entry key="editor.tab.painting" value="LONG_ARROW" />
+        <entry key="git.search.everywhere.tab.enabled" value="true" />
+        <entry key="ide.ui.native.file.chooser" value="true" />
+        <entry key="searcheverywhere.ml.sort.action" value="false" />
+        <entry key="searcheverywhere.ml.sort.classes" value="false" />
+        <entry key="searcheverywhere.ml.sort.files" value="false" />
+        <entry key="vcs.annotations.preload" value="true" />
+      </map>
+    </option>
+  </component>
+</application>

@@ -1,0 +1,8 @@
+<code_scheme name="Default" version="173">
+  <GoCodeStyleSettings>
+    <option name="ADD_LEADING_SPACE_TO_COMMENTS" value="true" />
+    <option name="RUN_GO_FMT_ON_REFORMAT" value="false" />
+    <option name="IMPORT_SORTING" value="GOIMPORTS" />
+    <option name="LOCAL_PACKAGE_PREFIXES" />
+  </GoCodeStyleSettings>
+</code_scheme>
