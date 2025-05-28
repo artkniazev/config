@@ -1,6 +1,4 @@
 command = /opt/homebrew/bin/tmux new -A -s main
-window-height = 51
-window-width = 173
 confirm-close-surface = false
 quit-after-last-window-closed = true
 shell-integration = zsh
@@ -8,22 +6,36 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = true
 clipboard-paste-protection = false
-window-theme = system
-window-decoration = none
-window-padding-x = 0
-window-padding-y = 0
-window-padding-color = extend
-font-size = 16
-font-family = JetBrainsMono Nerd Font Mono
-font-style = medium
-font-style-bold = bold
-font-style-italic = medium italic
-font-style-bold-italic = bold italic
+auto-update = check
+cursor-style = bar
+
 macos-titlebar-style = hidden
 macos-titlebar-proxy-icon = hidden
 macos-option-as-alt = true
 macos-window-shadow = false
 macos-icon = holographic
-auto-update = check
+
+window-height = 51
+window-width = 173
+window-theme = system
+window-decoration = none
+window-padding-x = 0
+window-padding-y = 0
+window-padding-color = extend
+
+font-size = 16
+font-family = JetBrainsMono Nerd Font Mono
+
+# dark theme
 theme = retrobox
-cursor-style = bar
+font-style = medium
+font-style-bold = bold
+font-style-italic = medium italic
+font-style-bold-italic = bold italic
+
+# light theme
+# theme = Violet Light
+# font-style = semibold
+# font-style-bold = extrabold
+# font-style-italic = semibold italic
+# font-style-bold-italic = extrabold italic
