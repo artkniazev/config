@@ -33,6 +33,9 @@ _init_emacs()
 
 _init()
 {
+	# Enable key repeat on MacOS
+	defaults write -g ApplePressAndHoldEnabled -bool false
+
     _init_zshrc
     _init_emacs
 }
