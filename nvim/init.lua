@@ -23,6 +23,21 @@ vim.opt.inccommand = 'split' -- preview substitutions
 vim.opt.cursorline = true -- show cursor line
 vim.opt.scrolloff = 10 -- show this number of lines around cursor
 
+vim.opt.autoread = true -- autoread when file is changed in file system
+
+-- autowrite file when changing buffers
+vim.opt.autowrite = true
+vim.opt.autowriteall = true
+
+-- autowrite file when leaving insert mode or changing text
+vim.api.nvim_create_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  callback = function()
+    if #vim.api.nvim_buf_get_name(0) ~= 0 and vim.bo.buflisted then
+      vim.cmd 'silent w'
+    end
+  end,
+})
+
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus' -- sync clipboard with os
 end)
