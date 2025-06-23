@@ -80,3 +80,7 @@ alias vimdiff="nvim -d"
 alias em="emacs -nw"
 alias magit="emacs --eval '(progn (magit-status) (delete-other-windows))'"
 
+# Misc
+alias veracrypt="/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt -t"
+alias mount_veracrypt="veracrypt -k '' --pim=0 --protect-hidden=no"
+
