@@ -58,8 +58,12 @@ _prompt()
 	# RPROMPT="$(_prompt_git_head)"
 }
 
-precmd_functions+=(_prompt)
+#precmd_functions+=(_prompt)
 
+# brew install starship
+if command -v starship &> /dev/null; then
+	eval "$(starship init zsh)"
+fi
 
 # --- Aliases ---
 

@@ -42,7 +42,7 @@ _init()
 
 _install()
 {
-	echo "install called"
+	brew install starship
 }
 
 _help()
@@ -61,3 +61,4 @@ main()
 }
 
 main $1
+
