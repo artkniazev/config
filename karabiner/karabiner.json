@@ -13,7 +13,7 @@
                         "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "h",
+                                    "key_code": "j",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
@@ -24,7 +24,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "j",
+                                    "key_code": "k",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
@@ -35,7 +35,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "k",
+                                    "key_code": "i",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
@@ -90,35 +90,13 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "i",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "end" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "o",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
                                     }
                                 },
-                                "to": [{ "key_code": "page_up" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "p",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [{ "key_code": "page_down" }],
+                                "to": [{ "key_code": "end" }],
                                 "type": "basic"
                             },
                             {
@@ -176,6 +154,16 @@
                     }
                 ]
             },
+            "devices": [
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 161,
+                        "vendor_id": 57638
+                    },
+                    "ignore": true
+                }
+            ],
             "name": "Programming",
             "selected": true,
             "virtual_hid_keyboard": {
