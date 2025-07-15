@@ -23,7 +23,7 @@ window-padding-x = 0
 window-padding-y = 0
 window-padding-color = extend
 
-background-opacity = 0.67
+background-opacity = 0.95
 background-blur = 20
 
 font-size = 16
