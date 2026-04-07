@@ -15,8 +15,8 @@ macos-option-as-alt = true
 macos-window-shadow = false
 macos-icon = holographic
 
-window-height = 51
-window-width = 173
+window-height = 52
+window-width = 182
 window-theme = system
 window-decoration = none
 window-padding-x = 0
@@ -37,8 +37,8 @@ font-style-italic = medium italic
 font-style-bold-italic = bold italic
 
 # light theme
-# theme = Violet Light
-# font-style = semibold
-# font-style-bold = extrabold
-# font-style-italic = semibold italic
-# font-style-bold-italic = extrabold italic
+#theme = Violet Light
+#font-style = bold
+#font-style-bold = extrabold
+#font-style-italic = bold italic
+#font-style-bold-italic = extrabold italic
