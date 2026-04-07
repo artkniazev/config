@@ -57,7 +57,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "semicolon",
+                                    "key_code": "m",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
@@ -68,13 +68,24 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "quote",
+                                    "key_code": "comma",
                                     "modifiers": {
                                         "mandatory": ["right_command"],
                                         "optional": ["any"]
                                     }
                                 },
                                 "to": [{ "key_code": "delete_forward" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["any"]
+                                    }
+                                },
+                                "to": [{ "key_code": "escape" }],
                                 "type": "basic"
                             },
                             {
@@ -109,16 +120,30 @@
                                 },
                                 "to": [{ "key_code": "return_or_enter" }],
                                 "type": "basic"
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "description": "space held -> shift",
+                        "enabled": false,
+                        "manipulators": [
                             {
                                 "from": {
-                                    "key_code": "slash",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"],
-                                        "optional": ["any"]
-                                    }
+                                    "key_code": "spacebar",
+                                    "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "escape" }],
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "lazy": true
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "halt": true,
+                                        "key_code": "spacebar"
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
