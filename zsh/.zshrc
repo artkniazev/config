@@ -65,6 +65,12 @@ if command -v starship &> /dev/null; then
 	eval "$(starship init zsh)"
 fi
 
+# brew install fzf
+if command -v starship &> /dev/null; then
+	source <(fzf --zsh)
+	export FZF_CTRL_R_OPTS="--no-sort"
+fi
+
 # --- Aliases ---
 
 # Colorize
