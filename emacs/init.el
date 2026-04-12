@@ -38,7 +38,7 @@
    
    ;; Restore Home&End keys behavior on MacOS
    ;; https://www.reddit.com/r/emacs/comments/j6vwa3/comment/g8111mv
-   ("<home>" . 'move-beginning-of-line)
+   ("<home>" . 'back-to-indentation)
    ("<end>" . 'move-end-of-line)
 
    ;; Simplify commenting in terminal because it can't receive C-;
@@ -47,6 +47,12 @@
    ;; MacOS defaults Cmd-Up to beginning of file, Cmd-Down to end of file
    ("<s-up>" . beginning-of-buffer)
    ("<s-down>" . end-of-buffer)
+   ("<C-up>" . beginning-of-buffer)
+   ("<C-down>" . end-of-buffer)
+   ("<C-left>" . back-to-indentation)
+   ("<C-right>" . move-end-of-line)
+   ("<M-up>" . scroll-down-command)
+   ("<M-down>" . scroll-up-command)
 
    ;; https://github.com/LionyxML/emacs-solo/blob/main/init.el#L55
    ("M-o" . other-window)
@@ -100,6 +106,9 @@
     (insert (format "Loaded in %s. Activated packages: %s"
                     (emacs-init-time)
                     (number-to-string (length package-activated-list)))))
+
+  (setq mac-command-modifier 'control)
+  (setq ns-command-modifier 'control)
   
   :custom
   (history-length 100)
@@ -139,6 +148,10 @@
   (make-backup-files nil)
   (backup-inhibited t)
 
+  ;; Dired
+  (dired-auto-revert-buffer t)
+  (auto-revert-verbose nil)
+
   :config
   ;; Custom options go to a separate file
   (setq custom-file "~/.config/emacs/custom.el") 
@@ -160,8 +173,7 @@
        (list (line-beginning-position) (line-beginning-position 2)))))
   (advice-add 'kill-region :before #'slick-cut)
   (advice-add 'kill-ring-save :before #'slick-copy)
-
-  )
+)
 
 (use-package isearch
   :ensure nil
@@ -215,13 +227,6 @@
   (wdired-allow-to-change-permissions t)
   (wdired-create-parent-directories t))
 
-(use-package auth-source
-  :ensure nil
-  :defer t
-  :config
-  (setq user-full-name "Artem E. Knyazev"
-	      user-mail-address "artem.e.knyazev@gmail.com"))
-
 (use-package smex
   :ensure t
   :defer t
@@ -229,25 +234,10 @@
   (("M-x" . smex)
    ("M-X" . smex-major-mode-commands)))
 
-;; (use-package helm
-;;   :ensure t
-;;   :defer t)
-
-(use-package magit
-  :ensure t
-  :defer t)
-
-;; (use-package projectile
-;;   :ensure t
-;;   :defer t
-;;   :init
-;;   (projectile-mode +1)
-;;   :bind
-;;   ("s-p" . projectile-command-map))
-
 (use-package go-mode
   :ensure t
-  :defer t)
+  :defer t
+  :hook (go-mode . eglot-ensure))
 
 ;; Use main colors from vim `retrobox' theme
 (use-package srcery-theme
